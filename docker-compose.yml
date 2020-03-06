@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:12
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DOCKER_POSTGRES_PASSWORD}
+      POSTGRES_USER: ${DOCKER_POSTGRES_USER}
+      PGDATA: ${DOCKER_PGDATA}
+    ports:
+      - "${DOCKER_HOST_POSTGRES_PORT}:5432"
+volumes:
+  postgres_data:
