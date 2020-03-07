@@ -4,12 +4,28 @@
     <title>TinkYnab</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="c-app">
+    <div class="c-wrapper">
+      <header class="c-header">
+        <!-- Header content here -->
+        <%= render partial: "shared/header" %>
+      </header>
+      <div class="c-body">
+        <main class="c-main">
+          <%= yield %>
+        </main>
+      </div>
+      <footer class="c-footer">
+        <!-- Footer content here -->
+        <span>Checkout code and contribute at <a href="https://github.com/fmfdias/tink-ynab">Tink YNAB Github</a>. Template: <a href="https://coreui.io">coreui</a></span>
+      </footer>
+    </div>
   </body>
+  <body>
 </html>
