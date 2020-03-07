@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :require_user!
+  # To add force user to authenticate, uncomment bellow.
+  #before_action :require_user!
 
 end
