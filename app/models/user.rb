@@ -4,5 +4,6 @@ class User < ApplicationRecord
 
   passwordless_with :email
 
-  has_many :ynab_accounts, dependent: :destroy
+  has_many :ynab_budgets
+  has_many :ynab_accounts, through: :ynab_budgets
 end

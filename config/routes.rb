@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :accounts, only: [:index]
+  resources :synchronizations, only: [:create]
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_000643) do
+ActiveRecord::Schema.define(version: 2020_03_08_131645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,20 @@ ActiveRecord::Schema.define(version: 2020_03_08_000643) do
   create_table "ynab_accounts", force: :cascade do |t|
     t.string "external_id"
     t.string "name"
-    t.string "type"
-    t.string "server_knowledge"
-    t.string "budget_id"
+    t.string "account_type"
+    t.bigint "ynab_budget_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ynab_budget_id"], name: "index_ynab_accounts_on_ynab_budget_id"
+  end
+
+  create_table "ynab_budgets", force: :cascade do |t|
+    t.string "name"
+    t.string "external_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_ynab_accounts_on_user_id"
+    t.index ["user_id"], name: "index_ynab_budgets_on_user_id"
   end
 
 end

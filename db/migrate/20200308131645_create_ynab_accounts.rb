@@ -3,10 +3,8 @@ class CreateYnabAccounts < ActiveRecord::Migration[6.0]
     create_table :ynab_accounts do |t|
       t.string :external_id
       t.string :name
-      t.string :type
-      t.string :server_knowledge
-      t.string :budget_id
-      t.belongs_to :user
+      t.string :account_type
+      t.references :ynab_budget
 
       t.timestamps
     end
