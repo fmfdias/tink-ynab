@@ -7,8 +7,8 @@ Check the current ruby version referenced in the Gemfile.
 e.g:
 
 ```
-$> ruby-install ruby 2.7.0
-$> chruby 2.7.0
+$> ruby-install ruby 2.7.1
+$> chruby 2.7.1
 ```
 
 ## Config bundle to place gems in the vendor folder (optional)
