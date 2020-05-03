@@ -1,0 +1,45 @@
+<%= form_with(model: ynab_budget, local: true) do |form| %>
+  <% if ynab_budget.errors.any? %>
+    <div class="row">
+      <div class="col" id="error_explanation">
+        <h3><%= pluralize(ynab_budget.errors.count, "error") %> prohibited this ynab_budget from being saved:</h3>
+
+        <ul>
+          <% ynab_budget.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= form.label :external_id %>
+      <%= form.text_field :external_id, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= form.label :user_id %>
+      <%= form.select :person_id,
+              User.all.collect { |p| [ p.email, p.id ] },
+              { include_blank: false },
+              { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col actions">
+      <%= form.submit nil, data: { disable_with: false }, type: "submit", class: 'btn btn-primary' %>
+      <%= link_to 'Back', ynab_budgets_path, type: "button", class: 'btn btn-secondary' %>
+    </div>
+  </div>
+<% end %>

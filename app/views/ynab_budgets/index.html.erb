@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1>Ynab Budgets</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">External ID</th>
+            <th scope="col">User</th>
+            <th scope="col" colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @ynab_budgets.each do |ynab_budget| %>
+          <tr>
+            <th scope="row"><%= ynab_budget.name %></th>
+            <td><%= ynab_budget.external_id %></td>
+            <td><%= ynab_budget.user.email %></td>
+            <td>
+              <%= link_to ynab_budget do %>
+                <i class="cil-notes"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_ynab_budget_path(ynab_budget) do %>
+                <i class="cil-pencil"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to ynab_budget, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="cil-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
