@@ -1,0 +1,42 @@
+<% display_ynab_budget = true if local_assigns[:display_ynab_budget].nil? %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">External ID</th>
+      <th scope="col">Account Type</th>
+      <% if display_ynab_budget %>
+        <th scope="col">Budget</th>
+      <% end %>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% ynab_accounts.each do |ynab_account| %>
+    <tr>
+      <th scope="row"><%= ynab_account.name %></th>
+      <td><%= ynab_account.external_id %></td>
+      <td><%= ynab_account.account_type %></td>
+      <% if display_ynab_budget %>
+        <td><%= link_to ynab_account.ynab_budget.name, ynab_account.ynab_budget %></td>
+      <% end %>
+      <td>
+        <%= link_to [ynab_account.ynab_budget, ynab_account] do %>
+          <i class="cil-notes"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to edit_ynab_budget_ynab_account_path(ynab_account.ynab_budget, ynab_account) do %>
+          <i class="cil-pencil"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to [ynab_account.ynab_budget, ynab_account], method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="cil-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

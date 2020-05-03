@@ -21,6 +21,16 @@
       <%= @ynab_budget.user_id %>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col">
+      <h3>YNAB Accounts</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= render 'shared/ynab_accounts_list', ynab_accounts: @ynab_budget.ynab_accounts, display_ynab_budget: false %>
+    </div>
+  </div>
   <div class="row mt-3">
     <div class="col">
       <%= link_to 'Edit', edit_ynab_budget_path(@ynab_budget), type: "button", class: 'btn btn-primary' %>
