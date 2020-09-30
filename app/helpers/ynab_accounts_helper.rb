@@ -1,0 +1,2 @@
+module YnabAccountsHelper
+end

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @ynab_account.name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <strong>External:</strong>
+      <%= @ynab_account.external_id %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <strong>Account type:</strong>
+      <%= @ynab_account.account_type %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <strong>Ynab budget:</strong>
+      <%= link_to @ynab_account.ynab_budget.name, ynab_budget_path(@ynab_account.ynab_budget) %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to 'Edit', edit_ynab_budget_ynab_account_path(@ynab_account.ynab_budget, @ynab_account), type: "button", class: 'btn btn-primary' %>
+      <%= link_to 'Back', ynab_budget_ynab_accounts_path(@ynab_account.ynab_budget), type: "button", class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>

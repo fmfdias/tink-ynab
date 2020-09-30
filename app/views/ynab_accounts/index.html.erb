@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @ynab_budget.name %> - Accounts</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= render 'shared/ynab_accounts_list', ynab_accounts: @ynab_accounts%>
+    </div>
+  </div>
+</div>
